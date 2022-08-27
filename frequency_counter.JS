@@ -1,3 +1,4 @@
+// To verify if for each element in one array it's square is present in another array
 function same(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
@@ -21,3 +22,30 @@ function same(arr1, arr2) {
   return true;
 }
 console.log(same([1, 2, 3, 4, 3], [1, 4, 9, 16, 9]));
+
+//Anagaram
+function anagram(string1, string2) {
+  if ((string1 === string2) === null) {
+    return true;
+  }
+  let array1 = Array.from(string1);
+  let array2 = Array.from(string2);
+  let frequencyCounterA = {};
+  let frequencyCounterB = {};
+  for (let val of array1) {
+    frequencyCounterA[val] = (frequencyCounterA[val] || 0) + 1;
+  }
+  for (let val of array2) {
+    frequencyCounterB[val] = (frequencyCounterB[val] || 0) + 1;
+  }
+  for (key in frequencyCounterA) {
+    if (!(key in frequencyCounterB)) {
+      return false;
+    }
+    if (frequencyCounterA[key] !== frequencyCounterB[key]) {
+      return false;
+    }
+    return "Strings are anagrams!";
+  }
+}
+console.log(anagram("abcd", "dcba"));
