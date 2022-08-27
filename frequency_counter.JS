@@ -49,3 +49,16 @@ function anagram(string1, string2) {
   }
 }
 console.log(anagram("abcd", "dcba"));
+
+//To find duplicates
+function areThereDuplicates(...args) {
+  if (args.length === 0) return null;
+  let freqCounter = {};
+  for (let val of args) {
+    freqCounter[val] = (freqCounter[val] || 0) + 1;
+    if (freqCounter[val] > 1) return "Duplicate found";
+  }
+  return "No duplicates found";
+}
+
+console.log(areThereDuplicates(1, 2, 3, 4, 1));

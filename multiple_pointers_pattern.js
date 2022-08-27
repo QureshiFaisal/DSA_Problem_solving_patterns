@@ -33,3 +33,26 @@ function unique(array) {
   return `The array has ${i + 1} unique values`;
 }
 console.log(unique([1, 1, 2, 2, 3, 3, 4, 4, 5, 5]));
+
+/* Write a function called averagePair. 
+Given a sorted array of integers and a target average, determine if there is a pair of values in the array where the average
+ of the pair equals the target average. There may be more than one pair that matches the average target.*/
+
+function averagePair(array, avg) {
+  if (array.length === 0) return "The array is empty";
+  let left = 0;
+  let right = array.length - 1;
+  while (left < right) {
+    let sum = array[left] + array[right] / 2;
+    if (sum === avg) {
+      return true;
+    } else if (sum < avg) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  return false;
+}
+
+console.log(averagePair([1, 2, 3, 4, 5, 9, 15, 16], 10));
