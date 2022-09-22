@@ -56,3 +56,34 @@ function averagePair(array, avg) {
 }
 
 console.log(averagePair([1, 2, 3, 4, 5, 9, 15, 16], 10));
+function findLongestSubstring(str) {
+    let longestSubStr = -Infinity;
+    let subStrKeys = {};
+ 
+    if(str.length === 0) return 0;
+ 
+    let pos = 0;
+    let subStrLen = 0;
+    
+    while(pos < str.length) {
+        if(!(str[pos] in subStrKeys)) {
+            subStrKeys[str[pos]] = pos;
+            pos++;
+            subStrLen++;
+        } else{
+            if( longestSubStr < subStrLen) longestSubStr = subStrLen ;
+
+            newPos = subStrKeys[pos] + 1;
+            subStrKeys = {};
+
+            pos = newPos;
+            subStrLen = 0;
+        }
+    }
+ 
+    if(longestSubStr < subStrLen) longestSubStr = subStrLen;
+ 
+    return longestSubStr;
+}
+
+console.log(findLongestSubstring('rithmschool'))
