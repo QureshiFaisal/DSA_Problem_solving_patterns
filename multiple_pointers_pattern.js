@@ -56,6 +56,23 @@ function averagePair(array, avg) {
 }
 
 console.log(averagePair([1, 2, 3, 4, 5, 9, 15, 16], 10));
+
+
+function isSubsequence(str1, str2) {
+  let count = 0;
+  for (let c of str2) {
+    if (str1[count] === c) {
+      count++;
+    }
+  }
+  return (str1.length === count);
+}
+isSubsequence('hello', 'hello world'); // true
+isSubsequence('sing', 'sting'); // true
+isSubsequence('abc', 'abracadabra'); // true
+isSubsequence('abc', 'acb')
+
+
 function findLongestSubstring(str) {
     let longestSubStr = -Infinity;
     let subStrKeys = {};
